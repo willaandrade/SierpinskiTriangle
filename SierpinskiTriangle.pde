@@ -2,7 +2,8 @@ public void setup(){
   size(500,500);
 }
 
-int min = 100;
+int min = 200;
+boolean isDcrs = true;
 public void draw(){
   background(50,0,100);
   
@@ -10,8 +11,13 @@ public void draw(){
 }
 
 public void mousePressed(){
-  if(min>10)
-    min-=0.5*min;
+  if(min<10||min>200)
+    isDcrs=!isDcrs;
+  if(min>200){min=200;}
+   if(isDcrs)
+     min-=0.5*min;
+   else
+     min*=2.1;
 }
 public void drawTriangle(int x, int y,int len){
   if(len<=min){
